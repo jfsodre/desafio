@@ -1,33 +1,27 @@
 const checkPalindromo = function solver(texto){
-    var array_caracteres=texto.toLowerCase().replace(/\s/g,"").split("");
-    var palindromo=[];
+    const array_caracteres=texto.toLowerCase().replace(/\s/g,"").split("");
+    const array_caracteres_inverso=array_caracteres.reverse();
+    
     var resultado={'palindromo': false};
     var ocorrencias={};
     var identificados=[];
 
-    for (var i = 0; i < array_caracteres.length;i++){
-        if (identificados.indexOf(array_caracteres[i]) == -1){
-            if (ocorrencias[array_caracteres[i]] == undefined) ocorrencias[array_caracteres[i]]=0;                
-            array_caracteres.map((char, key)=>{
-                if(char === array_caracteres[i]){
-                    ocorrencias[array_caracteres[i]]+=1;
-                    identificados.push(array_caracteres[i])
-                };
-            });        
-        }
-    }
+    if (array_caracteres.join('') == array_caracteres_inverso.reverse().join('')) resultado['palindromo']=true;
+    
+    array_caracteres.map((char, key)=>{        
+        if (identificados.includes(char)==false)
+            for (var i = 0; i < array_caracteres.length;i++){
+                if (char === array_caracteres[i]){
+                    if (ocorrencias[char] === undefined) ocorrencias[char]=0;
+                    ocorrencias[char]+=1;
+                    identificados.push(char);
+                }
+        } 
+    });
 
     // Grava Ocorrências
-    resultado['ocorrencias_caracteres']=ocorrencias;
-
-    for (var i = 0; i < array_caracteres.length;i++){
-        palindromo.unshift(array_caracteres[i]);        
-    };
-
-    if (array_caracteres.join('') == palindromo.join('')){
-        resultado['palindromo']=true
-    }
-
+    resultado['ocorrencias_caracteres']=ocorrencias;  
+    
     return resultado
 }
 module.exports=checkPalindromo;
