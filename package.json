@@ -1,0 +1,17 @@
+{
+  "name": "teia",
+  "version": "1.0.0",
+  "description": "API Desafio Desenvolvedores BackEnd",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "c082259",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.1",
+    "morgan": "^1.10.0"
+  }
+}
