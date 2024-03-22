@@ -1,6 +1,5 @@
 const checkPalindromo = function solver(texto){
-    var array_caracteres=texto.toLowerCase().split("");
-    
+    var array_caracteres=texto.toLowerCase().replace(/\s/g,"").split("");
     var palindromo=[];
     var resultado={'palindromo': false};
     var ocorrencias={};
@@ -25,7 +24,7 @@ const checkPalindromo = function solver(texto){
         palindromo.unshift(array_caracteres[i]);        
     };
 
-    if (texto.toLowerCase() == palindromo.join('')){
+    if (array_caracteres.join('') == palindromo.join('')){
         resultado['palindromo']=true
     }
 
