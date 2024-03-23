@@ -6,7 +6,6 @@ const checkPalindromo = function solver(texto){
     var identificados=[];
 
     if (array_caracteres.join('') == array_caracteres.reverse().join('')) resultado['palindromo']=true;
-    console.log()
     array_caracteres.map((char, key)=>{        
         if (identificados.includes(char)==false)
             for (var i = 0; i < array_caracteres.length;i++){
