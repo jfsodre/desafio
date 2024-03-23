@@ -1,13 +1,12 @@
 const checkPalindromo = function solver(texto){
     const array_caracteres=texto.toLowerCase().replace(/\s/g,"").split("");
-    const array_caracteres_inverso=array_caracteres.reverse();
-    
+   
     var resultado={'palindromo': false};
     var ocorrencias={};
     var identificados=[];
 
-    if (array_caracteres.join('') == array_caracteres_inverso.reverse().join('')) resultado['palindromo']=true;
-    
+    if (array_caracteres.join('') == array_caracteres.reverse().join('')) resultado['palindromo']=true;
+    console.log()
     array_caracteres.map((char, key)=>{        
         if (identificados.includes(char)==false)
             for (var i = 0; i < array_caracteres.length;i++){
